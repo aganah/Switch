@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".PulsaActivity"
+    android:background="@color/main_color">
+    <TextView
+        android:id="@+id/titletopup"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Top Up E-Wallet"
+        android:textSize="30dp"
+        android:paddingTop="25dp"
+        android:textColor="#F8B195"
+        android:paddingLeft="25dp"/>
+    <TextView
+        android:id="@+id/subtitle1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/titletopup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Masukkan Nomor Telepon"
+        android:textSize="20dp"
+        android:textColor="#F8B195"
+        android:layout_marginLeft="25dp"
+        android:layout_marginTop="25dp"/>
+    <Spinner
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/subtitle1"
+        android:background="@drawable/rounded_rectangle_pink"
+        android:id="@+id/sp_ewallet"
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="25dp"
+        android:paddingLeft="10dp"
+        android:entries="@array/ewallet"/>
+    <TextView
+        android:id="@+id/subtitle2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/sp_ewallet"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Masukkan Nomor Telepon"
+        android:textSize="20dp"
+        android:textColor="#F8B195"
+        android:layout_marginLeft="25dp"
+        android:layout_marginTop="10dp"/>
+    <EditText
+        android:id="@+id/inputtelp"
+        android:drawableLeft="@drawable/ic_contact_foreground"
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        app:layout_constraintTop_toBottomOf="@id/subtitle2"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="25dp"
+        android:hint="0812312312"
+        android:background="@drawable/rounded_rectangle_pink"/>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/containertop"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:layout_marginTop="25dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/inputtelp"
+        app:cardBackgroundColor="#F8B195">
+        <androidx.cardview.widget.CardView
+            android:layout_gravity="center"
+            android:layout_width="400dp"
+            android:layout_height="55dp"
+            app:cardBackgroundColor="#6C5B7B"
+            app:cardCornerRadius="20dp">
+            <TextView
+                android:gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="Pilih Nominal"
+                android:textColor="#fff"
+                android:textSize="20dp"/>
+        </androidx.cardview.widget.CardView>
+    </androidx.cardview.widget.CardView>
+
+    <Spinner
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/containertop"
+        android:layout_width="150dp"
+        android:layout_height="40dp"
+        android:background="@drawable/rounded_rectangle_pink"
+        />
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

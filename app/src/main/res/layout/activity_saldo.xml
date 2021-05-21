@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SaldoActivity"
+    android:background="@color/main_color">
+
+    <TextView
+        android:id="@+id/titlesaldo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_margin="25dp"
+        android:text="Isi Saldo"
+        android:textColor="#F8B195"
+        android:textSize="30dp"
+        />
+
+    <TextView
+        android:id="@+id/subtitle1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/titlesaldo"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="25dp"
+        android:text="Nominal"
+        android:textSize="20dp"
+        android:textColor="#F8B195"
+        />
+
+    <EditText
+        android:id="@+id/nominal_saldo"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/subtitle1"
+        android:layout_marginLeft="25dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginRight="25dp"
+        android:background="@drawable/rounded_rectangle_pink"
+        android:inputType="number"/>
+
+    <LinearLayout
+        android:id="@+id/container1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/nominal_saldo"
+        android:layout_margin="25dp"
+        android:orientation="vertical"
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/button10k"
+                android:layout_weight="2"
+                android:layout_width="wrap_content"
+                android:layout_height="60dp"
+                android:layout_marginRight="10dp"
+                android:background="@drawable/rounded_rectangle_purple"
+                android:text="Rp.10.000"
+                android:textAllCaps="false"
+                android:textColor="#fff"/>
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/button25k"
+                android:layout_weight="2"
+                android:layout_width="wrap_content"
+                android:layout_height="60dp"
+                android:layout_gravity="end"
+                android:layout_marginLeft="10dp"
+                android:background="@drawable/rounded_rectangle_purple"
+                android:text="Rp.25.000"
+                android:textAllCaps="false"
+                android:textColor="#fff" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="10dp">
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/button50k"
+                android:layout_weight="2"
+                android:layout_width="wrap_content"
+                android:layout_height="60dp"
+                android:layout_marginRight="10dp"
+                android:background="@drawable/rounded_rectangle_purple"
+                android:text="Rp.50.000"
+                android:textAllCaps="false"
+                android:textColor="#fff"/>
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:layout_weight="2"
+                android:id="@+id/button100k"
+                android:layout_width="wrap_content"
+                android:layout_height="60dp"
+                android:layout_marginLeft="10dp"
+                android:background="@drawable/rounded_rectangle_purple"
+                android:text="Rp.100.000"
+                android:textAllCaps="false"
+                android:textColor="#fff"/>
+        </LinearLayout>
+    </LinearLayout>
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/buttonisi"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_width="80dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="15dp"
+        app:layout_constraintTop_toBottomOf="@id/container1"
+        android:background="@drawable/rounded_rectangle_pink"
+        android:text="Isi"
+        android:textColor="#fff"/>
+
+
+
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

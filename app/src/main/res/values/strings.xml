@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">Switch</string>
+    <string-array name="ewallet">
+        <item>OVO</item>
+        <item>GOPAY</item>
+        <item>DANA</item>
+    </string-array>
+    <string-array name="nominalpulsa">
+        <item>25.500</item>
+        <item>50.500</item>
+        <item>75.500</item>
+        <item>100.500</item>
+    </string-array>
+</resources>

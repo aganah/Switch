@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "666105973139",
+    "project_id": "switch-fdf3a",
+    "storage_bucket": "switch-fdf3a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:666105973139:android:c7caba4aac2e6af47ac066",
+        "android_client_info": {
+          "package_name": "umn.ac.id.aswitch"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "666105973139-arnvnsmuvgv4nl6sglui6edoh6dellut.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC-6DbCUSKgm4IOGLUeFLqsgfpHhMWF-u8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "666105973139-arnvnsmuvgv4nl6sglui6edoh6dellut.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
