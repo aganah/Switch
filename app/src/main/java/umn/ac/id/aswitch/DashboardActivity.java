@@ -6,9 +6,12 @@ import androidx.appcompat.widget.AppCompatButton;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 
+import com.google.android.material.bottomappbar.BottomAppBar;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -22,6 +25,7 @@ import java.util.Locale;
 public class DashboardActivity extends AppCompatActivity {
     SharedPreferences shad;
     TextView namaUser, saldonow;
+    BottomNavigationView bottomapp;
     AppCompatButton profile, saldo, pulsa, ewallet, trf;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,13 +37,14 @@ public class DashboardActivity extends AppCompatActivity {
         pulsa = findViewById(R.id.pulsa_add);
         ewallet = findViewById(R.id.ewallet_add);
         trf = findViewById(R.id.transfer_to);
-
+        bottomapp = findViewById(R.id.navview);
         namaUser = findViewById(R.id.nama_user);
         saldonow = findViewById(R.id.saldo_kamu);
 
         shad = getSharedPreferences("switchPref", MODE_PRIVATE);
 
         namaUser.setText(shad.getString("username",""));
+        bottomapp.setOnNavigationItemSelectedListener(navi);
 
         profile.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -77,12 +82,32 @@ public class DashboardActivity extends AppCompatActivity {
                 startActivity(new Intent(DashboardActivity.this, GlobalActivity.class));
             }
         });
+
     }
+
+    BottomNavigationView.OnNavigationItemSelectedListener navi =
+            new BottomNavigationView.OnNavigationItemSelectedListener() {
+                @Override
+                public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                    switch (item.getItemId()){
+                        case R.id.home:
+                            if (getApplicationContext() == DashboardActivity.this){
+                                return true;
+                            } return true;
+                        case R.id.historyyy:
+
+                            Intent goHistory = new Intent(DashboardActivity.this, HistoryActivity.class);
+                            startActivity(goHistory);
+                            return true;
+                    } return false;
+                }
+            };
 
     @Override
     protected void onStart() {
         super.onStart();
         toRupiah();
+        bottomapp.setSelectedItemId(R.id.home);
     }
 
     private void toRupiah(){

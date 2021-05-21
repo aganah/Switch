@@ -1,22 +1,26 @@
 package umn.ac.id.aswitch;
 
 public class TransHandler {
-    String jenis, rId, penerima;
-    Double nominal;
+    private String jenis, rId, penerima, tanggal;
+    private Double nominal;
 
     public TransHandler() {}
 
-    public TransHandler(String jenis, String rId, Double nominal) {
-        this.jenis = jenis;
-        this.rId = rId;
-        this.nominal = nominal;
-    }
 
-    public TransHandler(String jenis, String rId, String penerima, Double nominal) {
+    public TransHandler(String jenis, String rId, String penerima, Double nominal, String tanggal) {
         this.jenis = jenis;
         this.rId = rId;
         this.penerima = penerima;
         this.nominal = nominal;
+        this.tanggal = tanggal;
+    }
+
+    public String getTanggal() {
+        return tanggal;
+    }
+
+    public void setTanggal(String tanggal) {
+        this.tanggal = tanggal;
     }
 
     public String getJenis() {

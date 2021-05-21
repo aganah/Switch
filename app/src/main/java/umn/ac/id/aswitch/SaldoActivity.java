@@ -21,6 +21,8 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.text.NumberFormat;
 import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public class SaldoActivity extends AppCompatActivity {
     private static final String TAG = "SaldoActivity";
@@ -95,16 +97,16 @@ public class SaldoActivity extends AppCompatActivity {
         }else{
             goIsi();
         }
-
-
     }
 
     public void goIsi(){
         String val = nominal.getText().toString();
         Double nom = Double.parseDouble(val);
+        Date date = new Date();
         String username = shad.getString("username","");
         String rIdnow = username+shad.getString("telp","");
-        Log.d(TAG, rIdnow);
+        SimpleDateFormat formatter = new SimpleDateFormat("dd MMMM yyyy");
+        String strDate = formatter.format(date);
         DatabaseReference myRef = FirebaseDatabase.getInstance().getReference("rekening");
 
         Query checkrId = myRef.orderByKey().equalTo(rIdnow);
@@ -129,7 +131,7 @@ public class SaldoActivity extends AppCompatActivity {
                     DatabaseReference myRef2 = FirebaseDatabase.getInstance().getReference("trans");
                     String jenis = "isi";
 
-                    TransHandler handle2 = new TransHandler(jenis, rIdnow, nom);
+                    TransHandler handle2 = new TransHandler(jenis, rIdnow,"",nom,strDate);
                     myRef2.push().setValue(handle2);
 
                     Intent success = new Intent(SaldoActivity.this, BerhasilActivity.class);

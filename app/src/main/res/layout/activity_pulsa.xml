@@ -6,21 +6,11 @@
     android:layout_height="match_parent"
     tools:context=".PulsaActivity"
     android:background="@color/main_color">
-        <TextView
-            android:id="@+id/titlepulsa"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Pulsa"
-            android:textSize="30dp"
-            android:paddingTop="25dp"
-            android:textColor="#F8B195"
-            android:paddingLeft="25dp"/>
+
         <TextView
             android:id="@+id/subtitle"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/titlepulsa"
+            app:layout_constraintTop_toTopOf="parent"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Masukkan Nomor Telepon"
@@ -75,16 +65,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         android:orientation="horizontal"
         android:gravity="center"
-        android:layout_marginRight="40dp"
         android:layout_marginTop="25dp">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAlignment="center"
-            android:text="Rp."
-            android:textSize="25dp"
-            android:textColor="#fff"
-            android:layout_marginRight="5dp"/>
+
         <Spinner
             android:layout_width="150dp"
             android:layout_height="50dp"
@@ -96,7 +78,7 @@
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/buypulsabtn"
-        android:layout_width="100dp"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"

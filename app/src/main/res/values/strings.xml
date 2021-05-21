@@ -6,9 +6,9 @@
         <item>DANA</item>
     </string-array>
     <string-array name="nominalpulsa">
-        <item>25.500</item>
-        <item>50.500</item>
-        <item>75.500</item>
-        <item>100.500</item>
+        <item>Rp. 25.500</item>
+        <item>Rp. 50.500</item>
+        <item>Rp. 75.500</item>
+        <item>Rp. 100.500</item>
     </string-array>
 </resources>
