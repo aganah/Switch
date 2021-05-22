@@ -20,7 +20,7 @@ import com.google.firebase.database.ValueEventListener;
 
 public class LoginActivity extends AppCompatActivity {
     SharedPreferences shad;
-    SharedPreferences.Editor shadEdit;
+    SharedPreferences.Editor shadEdit,shadEdit1;
     EditText username, password;
     AppCompatButton login_btn;
     @Override
@@ -106,17 +106,35 @@ public class LoginActivity extends AppCompatActivity {
                     if(dbPass.equals(enterPassword)){
                         password.setError(null);
 
-                        shadEdit = shad.edit();
-                        shadEdit.putString("username", enterUsername);
-                        shadEdit.putString("password", dbPass);
-                        shadEdit.putString("email", dbEmail);
-                        shadEdit.putString("telp", dbNotelp);
-                        shadEdit.commit();
+                        String idRek = enterUsername+dbNotelp;
+                        DatabaseReference myRef1 = FirebaseDatabase.getInstance().getReference("rekening");
+                        Query checkRek = myRef1.orderByKey().equalTo(idRek);
+                        checkRek.addListenerForSingleValueEvent(new ValueEventListener() {
+                            @Override
+                            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                if(snapshot.exists()){
+                                    Double saldoUser = snapshot.child(enterUsername+dbNotelp).child("saldo").getValue(Double.class);
 
-                        Intent dashboard = new Intent(LoginActivity.this, DashboardActivity.class);
-                        startActivity(dashboard);
-                        setResult(RESULT_OK);
-                        finish();
+                                    shadEdit = shad.edit();
+                                    shadEdit.putString("username", enterUsername);
+                                    shadEdit.putString("password", dbPass);
+                                    shadEdit.putString("email", dbEmail);
+                                    shadEdit.putString("telp", dbNotelp);
+                                    shadEdit.putString("saldo", saldoUser.toString());
+                                    shadEdit.commit();
+
+                                    Intent dashboard = new Intent(LoginActivity.this, DashboardActivity.class);
+                                    startActivity(dashboard);
+                                    setResult(RESULT_OK);
+                                    finish();
+                                }else{
+                                    System.out.println("Data failed");
+                                }
+                            }
+
+                            @Override
+                            public void onCancelled(@NonNull DatabaseError error) {}
+                        });
                     }else{
                         password.setError("Wrong Password");
                         password.requestFocus();

@@ -9,6 +9,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.widget.TextView;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.database.DataSnapshot;
@@ -26,14 +27,21 @@ public class HistoryActivity extends AppCompatActivity {
     BottomNavigationView bottomapp;
     RecyclerView rv;
     HistoryAdapter adapter;
-
+    TextView nohist;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_history);
-        RecyclerView rv = findViewById(R.id.recyclerview);
+        nohist = findViewById(R.id.no_history);
+
+        rv = findViewById(R.id.recyclerview);
         shad = getSharedPreferences("switchPref",MODE_PRIVATE);
-        rv.setLayoutManager(new LinearLayoutManager(this));
+
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
+        linearLayoutManager.setReverseLayout(true);
+        linearLayoutManager.setStackFromEnd(true);
+        rv.setLayoutManager(linearLayoutManager);
+
         bottomapp = findViewById(R.id.navview);
         String username = shad.getString("username","");
         String rIdnow = username+shad.getString("telp","");
@@ -56,6 +64,8 @@ public class HistoryActivity extends AppCompatActivity {
                     }
                     adapter = new HistoryAdapter(history);
                     rv.setAdapter(adapter);
+                }else{
+                    nohist.setText("Tidak ada transaksi.");
                 }
             }
 

@@ -28,7 +28,9 @@
             app:layout_constraintStart_toStartOf="parent"
             android:layout_marginTop="10dp"
             android:layout_marginLeft="25dp"
-            android:background="@drawable/rounded_rectangle_pink"/>
+            android:background="@drawable/rounded_rectangle_pink"
+            android:inputType="number"
+            android:hint="08xxxxxx"/>
 
         <androidx.cardview.widget.CardView
             android:id="@+id/containertop"
@@ -68,10 +70,10 @@
         android:layout_marginTop="25dp">
 
         <Spinner
+            android:id="@+id/dropdown_pulsa"
             android:layout_width="150dp"
             android:layout_height="50dp"
             android:textAlignment="center"
-            android:entries="@array/nominalpulsa"
             android:background="@drawable/rounded_rectangle_pink"
             />
     </LinearLayout>
@@ -88,9 +90,4 @@
         android:text="Beli"
         android:textColor="#fff"
         />
-
-
-
-
-
 </androidx.constraintlayout.widget.ConstraintLayout>

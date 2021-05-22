@@ -27,8 +27,7 @@
         android:layout_height="50dp"
         android:layout_marginTop="10dp"
         android:layout_marginLeft="25dp"
-        android:paddingLeft="10dp"
-        android:entries="@array/ewallet"/>
+        android:paddingLeft="10dp"/>
     <TextView
         android:id="@+id/subtitle2"
         app:layout_constraintStart_toStartOf="parent"
@@ -41,7 +40,7 @@
         android:layout_marginLeft="25dp"
         android:layout_marginTop="10dp"/>
     <EditText
-        android:id="@+id/inputtelp"
+        android:id="@+id/inputtelp_ewallet"
         android:drawableLeft="@drawable/ic_contact_foreground"
         android:layout_width="200dp"
         android:layout_height="50dp"
@@ -59,7 +58,7 @@
             android:layout_width="400dp"
             android:layout_height="55dp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/inputtelp"
+            app:layout_constraintTop_toBottomOf="@id/inputtelp_ewallet"
             app:layout_constraintEnd_toEndOf="parent"
             app:cardBackgroundColor="#6C5B7B"
             app:cardCornerRadius="20dp"
@@ -94,6 +93,7 @@
         />
 
     <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/buy_ewallet"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:background="@drawable/rounded_rectangle_purple"

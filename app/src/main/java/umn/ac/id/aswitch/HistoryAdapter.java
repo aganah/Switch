@@ -8,7 +8,9 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.text.NumberFormat;
 import java.util.ArrayList;
+import java.util.Locale;
 
 
 public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.HistoryViewHolder> {
@@ -29,12 +31,18 @@ public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.HistoryV
     @Override
     public void onBindViewHolder(@NonNull HistoryViewHolder holder, int position) {
         holder.jenis.setText(histori.get(position).getJenis());
-        holder.nominal.setText(histori.get(position).getNominal().toString());
+
+        Locale myIndonesianLocale = new Locale("in", "ID");
+        NumberFormat format = NumberFormat.getCurrencyInstance(myIndonesianLocale);
+        String saldoKonvert = format.format(histori.get(position).getNominal());
+
+        holder.nominal.setText(saldoKonvert);
+
         holder.tanggal.setText(histori.get(position).getTanggal());
         if(histori.get(position).getPenerima().isEmpty()){
             holder.user.setText(histori.get(position).getrId());
         }else{
-            holder.user.setText(histori.get(position).getrId()+" -> "+histori.get(position).getPenerima());
+            holder.user.setText(histori.get(position).getrId()+" \n-> "+histori.get(position).getPenerima());
         }
     }
 

@@ -23,7 +23,16 @@
         app:layout_constraintTop_toTopOf="parent"
         android:text="Malding"
         android:textSize="30dp"
-        android:paddingTop="25dp"
+        android:paddingTop="18dp"
+        android:textColor="#F8B195"/>
+    <TextView
+        android:id="@+id/nama_rekening"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toEndOf="@id/profile_icon"
+        app:layout_constraintTop_toBottomOf="@+id/nama_profile"
+        android:text="Malding"
+        android:textSize="15dp"
         android:textColor="#F8B195"/>
     <LinearLayout
         android:id="@+id/tigabtn"

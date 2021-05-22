@@ -29,6 +29,7 @@ public class SaldoActivity extends AppCompatActivity {
     AppCompatButton isi, button10, button25, button50, button100;
     EditText nominal;
     SharedPreferences shad;
+    SharedPreferences.Editor shadEdit;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -127,9 +128,12 @@ public class SaldoActivity extends AppCompatActivity {
                     RekHandler handle = new RekHandler(saldo, username);
                     myRef.child(rIdnow).setValue(handle);
 
+                    shadEdit = shad.edit();
+                    shadEdit.putString("saldo",saldo.toString());
+                    shadEdit.commit();
 
                     DatabaseReference myRef2 = FirebaseDatabase.getInstance().getReference("trans");
-                    String jenis = "isi";
+                    String jenis = "Isi Saldo";
 
                     TransHandler handle2 = new TransHandler(jenis, rIdnow,"",nom,strDate);
                     myRef2.push().setValue(handle2);

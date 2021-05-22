@@ -14,7 +14,7 @@ public class ProfileActivity extends AppCompatActivity {
     AppCompatButton profile, pass, logout;
     SharedPreferences shad;
     SharedPreferences.Editor shadEdit;
-    TextView namaprof;
+    TextView namaprof,namarek;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -23,10 +23,13 @@ public class ProfileActivity extends AppCompatActivity {
         profile = findViewById(R.id.change_profile);
         pass = findViewById(R.id.change_pass);
         namaprof = findViewById(R.id.nama_profile);
+        namarek = findViewById(R.id.nama_rekening);
         logout = findViewById(R.id.logout_btn);
         shad = getSharedPreferences("switchPref", MODE_PRIVATE);
 
         namaprof.setText(shad.getString("username",""));
+        namarek.setText(shad.getString("username","")+shad.getString("telp",""));
+
         profile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
