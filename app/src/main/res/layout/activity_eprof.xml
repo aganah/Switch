@@ -6,6 +6,25 @@
     android:layout_height="match_parent"
     tools:context=".EpassActivity"
     android:background="@color/main_color">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/titleprof"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:cardBackgroundColor="#F67280"
+        android:paddingBottom="5dp">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="25dp"
+            android:text="Ganti Profil"
+            android:textColor="#6C5B7B"
+            android:textSize="30dp"
+            />
+    </androidx.cardview.widget.CardView>
+
     <androidx.cardview.widget.CardView
         android:layout_width="310dp"
         android:layout_height="268dp"
