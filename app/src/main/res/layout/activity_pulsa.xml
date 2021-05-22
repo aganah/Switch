@@ -30,7 +30,8 @@
             android:layout_marginLeft="25dp"
             android:background="@drawable/rounded_rectangle_pink"
             android:inputType="number"
-            android:hint="08xxxxxx"/>
+            android:hint="08xxxxxx"
+            android:paddingRight="10dp"/>
 
         <androidx.cardview.widget.CardView
             android:id="@+id/containertop"

@@ -22,7 +22,7 @@
         />
     <EditText
         android:id="@+id/inp_sentto"
-        android:layout_width="200dp"
+        android:layout_width="230dp"
         android:layout_height="50dp"
         app:layout_constraintTop_toBottomOf="@id/subtitle2"
         app:layout_constraintStart_toStartOf="parent"
@@ -30,6 +30,7 @@
         android:layout_marginLeft="25dp"
         android:background="@drawable/rounded_rectangle_pink"
         android:paddingLeft="10dp"
+        android:paddingRight="10dp"
         android:hint="Rp.XXX.XXX"/>
     <TextView
         android:id="@+id/rek_penerima"
@@ -44,7 +45,7 @@
         android:paddingLeft="25dp"/>
     <EditText
         android:id="@+id/inp_rek"
-        android:layout_width="200dp"
+        android:layout_width="230dp"
         android:layout_height="50dp"
         app:layout_constraintTop_toBottomOf="@id/rek_penerima"
         app:layout_constraintStart_toStartOf="parent"
@@ -52,7 +53,8 @@
         android:layout_marginLeft="25dp"
         android:background="@drawable/rounded_rectangle_pink"
         android:hint="15252123"
-        android:paddingLeft="10dp"/>
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"/>
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/globalbtn"

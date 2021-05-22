@@ -27,7 +27,8 @@
         android:layout_height="50dp"
         android:layout_marginTop="10dp"
         android:layout_marginLeft="25dp"
-        android:paddingLeft="10dp"/>
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"/>
     <TextView
         android:id="@+id/subtitle2"
         app:layout_constraintStart_toStartOf="parent"
@@ -49,6 +50,7 @@
         android:layout_marginTop="10dp"
         android:layout_marginLeft="25dp"
         android:hint="0812312312"
+        android:paddingRight="10dp"
         android:background="@drawable/rounded_rectangle_pink"/>
 
 
@@ -90,6 +92,7 @@
         android:paddingLeft="10dp"
         android:inputType="number"
         android:hint="Rp.XXX.XXX"
+        android:paddingRight="10dp"
         />
 
     <androidx.appcompat.widget.AppCompatButton
