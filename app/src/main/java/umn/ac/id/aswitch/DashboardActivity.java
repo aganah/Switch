@@ -2,13 +2,20 @@ package umn.ac.id.aswitch;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
+import androidx.appcompat.widget.AppCompatImageButton;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 
+import android.Manifest;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
+import android.graphics.Camera;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.material.bottomappbar.BottomAppBar;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -27,6 +34,8 @@ public class DashboardActivity extends AppCompatActivity {
     TextView namaUser, saldonow;
     BottomNavigationView bottomapp;
     AppCompatButton profile, saldo, pulsa, ewallet, trf;
+    AppCompatImageButton qrbtn;
+    private static final int CAM_requestCode = 100;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,11 +49,13 @@ public class DashboardActivity extends AppCompatActivity {
         bottomapp = findViewById(R.id.navview);
         namaUser = findViewById(R.id.nama_user);
         saldonow = findViewById(R.id.saldo_kamu);
+        qrbtn = findViewById(R.id.qrbutton);
 
         shad = getSharedPreferences("switchPref", MODE_PRIVATE);
 
         namaUser.setText(shad.getString("username",""));
         bottomapp.setOnNavigationItemSelectedListener(navi);
+
 
         profile.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -83,7 +94,23 @@ public class DashboardActivity extends AppCompatActivity {
             }
         });
 
+        qrbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+
+                if (ContextCompat.checkSelfPermission(DashboardActivity.this, Manifest.permission.CAMERA) == PackageManager.PERMISSION_DENIED){
+                    ActivityCompat.requestPermissions(DashboardActivity.this, new String[]{Manifest.permission.CAMERA}, CAM_requestCode);
+                }else{
+                    Intent qr = new Intent("android.media.action.IMAGE_CAPTURE");
+                    startActivity(qr);
+                }
+            }
+        });
+
     }
+
+
 
     BottomNavigationView.OnNavigationItemSelectedListener navi =
             new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -108,6 +135,7 @@ public class DashboardActivity extends AppCompatActivity {
         super.onStart();
         toRupiah();
         bottomapp.setSelectedItemId(R.id.home);
+
     }
 
     private void toRupiah(){
@@ -154,4 +182,17 @@ public class DashboardActivity extends AppCompatActivity {
                 break;
         }
     }
+
+
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        if (requestCode == CAM_requestCode) {
+            if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {} else {
+                Toast.makeText(this, "Camera permission denied!", Toast.LENGTH_LONG).show();
+            }
+        }
+    }
+
 }

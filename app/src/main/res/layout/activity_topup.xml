@@ -7,10 +7,28 @@
     tools:context=".PulsaActivity"
     android:background="@color/main_color">
 
+    <androidx.cardview.widget.CardView
+        android:id="@+id/titletopup"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:cardBackgroundColor="#F67280"
+        android:paddingBottom="5dp">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="25dp"
+            android:text="Top-up E-Wallet"
+            android:textColor="#6C5B7B"
+            android:textSize="30dp"
+            />
+    </androidx.cardview.widget.CardView>
+
     <TextView
         android:id="@+id/subtitle1"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/titletopup"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Pilih E-Wallet"
@@ -27,7 +45,8 @@
         android:layout_height="50dp"
         android:layout_marginTop="10dp"
         android:layout_marginLeft="25dp"
-        android:paddingLeft="10dp"/>
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"/>
     <TextView
         android:id="@+id/subtitle2"
         app:layout_constraintStart_toStartOf="parent"
@@ -49,6 +68,7 @@
         android:layout_marginTop="10dp"
         android:layout_marginLeft="25dp"
         android:hint="0812312312"
+        android:paddingRight="10dp"
         android:background="@drawable/rounded_rectangle_pink"/>
 
 
@@ -90,6 +110,7 @@
         android:paddingLeft="10dp"
         android:inputType="number"
         android:hint="Rp.XXX.XXX"
+        android:paddingRight="10dp"
         />
 
     <androidx.appcompat.widget.AppCompatButton
